@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { MapContainer, TileLayer, Polyline, Popup } from "react-leaflet";
 import TopBar from "./components/TopBar";
 import axios from "axios";
 import polyline from "@mapbox/polyline";
@@ -33,8 +34,6 @@ function App() {
         }
       );
 
-      setActivities(activityResponse.data[0].name);
-
       const polylines = [];
       for (let i = 0; i < activityResponse.data.length; i += 1) {
         const activity_polyline = activityResponse.data[i].map.summary_polyline;
@@ -53,7 +52,20 @@ function App() {
   return (
     <div className="App">
       <TopBar />
-      <h1></h1>
+      <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={true}>
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+
+        {activities.map((activity, index) => (
+          <Polyline key={index} positions={activity.activityPositions}>
+            <Popup positions={activity.activityPositions}>
+              {activity.activityName}
+            </Popup>
+          </Polyline>
+        ))}
+      </MapContainer>
     </div>
   );
 }
