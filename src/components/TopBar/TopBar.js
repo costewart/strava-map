@@ -10,12 +10,19 @@ import "./TopBar.css";
 // import { useLocation } from "react-router-dom";
 
 const TopBar = () => {
+  const handleClick = () => {
+    // do something meaningful, Promises, if/else, whatever, and then
+    window.location.assign(
+      "https://www.strava.com/oauth/authorize?client_id=65712&response_type=code&redirect_uri=http://localhost:3000/"
+    );
+  };
   return (
     <div className="top-bar">
       <div className="logo-wrapper"></div>
       <div className="left">
         <div className="top-bar-header">
           <h1>Strava Map</h1>
+          <button onClick={handleClick}></button>
         </div>
         <div className="buttons"></div>
       </div>
