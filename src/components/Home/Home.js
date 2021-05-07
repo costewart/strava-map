@@ -16,17 +16,19 @@ const connectWithStrava = async () => {
 const Home = () => {
   return (
     <div className="Home">
-      <div className="title">Map Maker</div>
+      <div className="title">
+        <h1>Map Maker</h1>
+      </div>
       <div className="description">
         Create your own comprehensive map of your strava routes - choose to
         display any or all your sports, from day 1 or some time in between. A
         great map to visualize your activity in an area, and to share with
         friends.
       </div>
-      <button className="connect-with-strava">
-        <img src={connect} alt="my image" onClick={connectWithStrava} />
-      </button>
-      <Footer/>
+
+      <img src={connect} alt="my image" onClick={connectWithStrava} />
+
+      <Footer />
     </div>
   );
 };
