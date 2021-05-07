@@ -55,7 +55,7 @@ app.get("/authenticate", async function (req, res) {
   console.log("id: " + data["athlete"]["id"]);
 
   // redirect to app page (store data in cookies)
-  res.set("location", "http://localhost:3000/map");
+  res.set("location", "http://localhost:3000/create");
   res
     .status(301)
     .cookie("str-zoom-access_token", "Bearer " + data["access_token"], {

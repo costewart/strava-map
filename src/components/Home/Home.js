@@ -1,4 +1,7 @@
 import React from "react";
+import Footer from "../Footer";
+import "./Home.css";
+import connect from "./connectwithstrava.png";
 
 const client_id = 65712;
 const connectWithStrava = async () => {
@@ -11,6 +14,20 @@ const connectWithStrava = async () => {
 };
 
 const Home = () => {
-  return <button onClick={connectWithStrava}> Connect </button>;
+  return (
+    <div className="Home">
+      <div className="title">Map Maker</div>
+      <div className="description">
+        Create your own comprehensive map of your strava routes - choose to
+        display any or all your sports, from day 1 or some time in between. A
+        great map to visualize your activity in an area, and to share with
+        friends.
+      </div>
+      <button className="connect-with-strava">
+        <img src={connect} alt="my image" onClick={connectWithStrava} />
+      </button>
+      <Footer/>
+    </div>
+  );
 };
 export default Home;
