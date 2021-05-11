@@ -3,9 +3,29 @@ import Map from "./components/Map";
 import Home from "./components/Home";
 import Create from "./components/Create";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import { reducers } from "./redux";
 import "./App.css";
 
-function App() {
+
+const AppWrapper = () => {
+  const store = createStore(
+    combineReducers({
+      ...reducers,
+    }),
+
+    // composeWithDevTools(applyMiddleware(thunk))
+  );
+
+  return (
+      <Provider store={store}>
+        <App />
+      </Provider>
+  );
+};
+
+const App = () => {
   const client_secret = "13512646a9542634eda552b5b8f23acc86f062ca";
   const activities_link = "https://www.strava.com/api/v3/athlete/activities";
   const auth_link = "https://www.strava.com/oauth/token";
@@ -31,4 +51,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppWrapper;

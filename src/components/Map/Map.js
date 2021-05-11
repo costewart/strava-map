@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import TopBar from "../TopBar";
 import { MapContainer, TileLayer, Polyline, Popup } from "react-leaflet";
+import { useSelector, useDispatch } from "react-redux";
+import { selectors, actions } from "../../redux/activities";
 import "./Map.css";
 
-const Map = ({ activities }) => {
+const Map = () => {
+  const activities = useSelector(selectors.getActivities);
+
+  console.log(activities);
+
   return (
     <div>
       <TopBar />

@@ -1,10 +1,15 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import TopBar from "../TopBar";
 import Cookies from "js-cookie"; // do we need this?
 import polyline from "@mapbox/polyline";
+import { useSelector, useDispatch } from "react-redux";
+import { selectors, actions } from "../../redux/activities";
 
 const Create = () => {
-  const [activities, setActivities] = useState([]);
+  const history = useHistory();
+
+  const dispatch = useDispatch();
 
   const getActivities = async () => {
     var access_token = Cookies.get("str-zoom-access_token");
@@ -32,9 +37,16 @@ const Create = () => {
         activityName: activity_name,
       });
     }
-    setActivities(polylines);
+
+    dispatch(actions.setActivities(polylines));
+
+    history.push("/map");
+
     return data;
   };
+
+  const activities = useSelector(selectors.getActivities);
+  console.log(activities);
   return (
     <div>
       <TopBar /> <button onClick={getActivities}>Get Activities </button>

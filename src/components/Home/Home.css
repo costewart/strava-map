@@ -12,6 +12,13 @@
   align-items: center;
 }
 
-.Home button {
-  outline: none;
+.Home .description {
+  height: 50px;
+  width: 500px;
+}
+
+.Home img {
+  height: 45px;
+  width: 200px;
+  padding: 20px;
 }
