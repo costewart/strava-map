@@ -10,6 +10,12 @@ const Map = () => {
     useSelector(selectors.getActivities)
   );
 
+  const [filters, setFilters] = useState({
+    Ride: true,
+    Kitesurf: true,
+    Surfing: true,
+  });
+
   const removeFalsy = (obj) => {
     let newObj = {};
     Object.keys(obj).forEach((prop) => {
@@ -20,12 +26,12 @@ const Map = () => {
     return newObj;
   };
 
-  const sports = Object.keys(removeFalsy(useSelector(selectors.getSports)));
+  const sports = Object.keys(removeFalsy(filters));
 
   console.log(sports);
   return (
     <div>
-      <FilterBox />
+      <FilterBox onSubmit={setFilters} sports={filters}/>
       <MapContainer
         center={[49.246292, -123.116226]}
         zoom={11}
