@@ -1,16 +1,8 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { selectors, actions } from "../../redux/activities";
+import React from "react";
+import Sport from "../Sport";
 import "./FilterBox.css";
 
-const FilterBox = ({onSubmit, sports}) => {
-
-  const dispatch = useDispatch();
-
-  const handleToggle = ({ target }) =>
-   onSubmit((s) => ({ ...s, [target.name]: !s[target.name] }))
-
-
+const FilterBox = ({ onSubmit, sports }) => {
   return (
     <div className="filter_box">
       <h1>Edit Your Map</h1>
@@ -18,16 +10,7 @@ const FilterBox = ({onSubmit, sports}) => {
         <div className="checkboxes">
           <p>Type of Sport</p>
           {Object.keys(sports).map((key) => (
-            <label>
-              <input
-                type="checkbox"
-                onChange={handleToggle}
-                key={key}
-                name={key}
-                checked={sports[key]}
-              />
-              {key}
-            </label>
+            <Sport sport={key} onSubmit={onSubmit} checked={sports[key]} />
           ))}
         </div>
         <p>Time Period </p>
