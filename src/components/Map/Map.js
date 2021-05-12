@@ -1,18 +1,31 @@
-import React, { useEffect } from "react";
-import TopBar from "../TopBar";
+import React, { useEffect, useState } from "react";
+import FilterBox from "../FilterBox";
 import { MapContainer, TileLayer, Polyline, Popup } from "react-leaflet";
 import { useSelector, useDispatch } from "react-redux";
 import { selectors, actions } from "../../redux/activities";
 import "./Map.css";
 
 const Map = () => {
-  const activities = useSelector(selectors.getActivities);
+  const [activities, setActivities] = useState(
+    useSelector(selectors.getActivities)
+  );
 
-  console.log(activities);
+  const removeFalsy = (obj) => {
+    let newObj = {};
+    Object.keys(obj).forEach((prop) => {
+      if (obj[prop]) {
+        newObj[prop] = obj[prop];
+      }
+    });
+    return newObj;
+  };
 
+  const sports = Object.keys(removeFalsy(useSelector(selectors.getSports)));
+
+  console.log(sports);
   return (
     <div>
-      <TopBar />
+      <FilterBox />
       <MapContainer
         center={[49.246292, -123.116226]}
         zoom={11}
@@ -23,13 +36,15 @@ const Map = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        {activities.map((activity, index) => (
-          <Polyline key={index} positions={activity.activityPositions}>
-            <Popup positions={activity.activityPositions}>
-              {activity.activityName}
-            </Popup>
-          </Polyline>
-        ))}
+        {activities
+          .filter((activity) => sports.includes(activity.type))
+          .map((activity, index) => (
+            <Polyline key={index} positions={activity.activityPositions}>
+              <Popup positions={activity.activityPositions}>
+                {activity.activityName}
+              </Popup>
+            </Polyline>
+          ))}
       </MapContainer>
     </div>
   );

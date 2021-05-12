@@ -1,0 +1,25 @@
+.filter_box {
+  height: 400px;
+  width: 200px;
+  position: absolute;
+  z-index: 1000;
+  background-color: bisque;
+  left: 10px;
+  top: 100px;
+}
+
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  vertical-align: middle;
+  position: relative;
+  bottom: 1px;
+}
+
+input[type="radio"] {
+  bottom: 2px;
+}

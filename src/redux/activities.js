@@ -1,9 +1,15 @@
 export const types = {
   SET_ACTIVITIES: "ui/set_activities",
+  SET_SPORTS: "ui/set_sports",
 };
 
 const initialState = {
   activities: [],
+  sports: {
+    Ride: true,
+    Kitesurf: false,
+    Surfing: true,
+  },
 };
 
 export default (state = initialState, action) => {
@@ -18,15 +24,25 @@ export default (state = initialState, action) => {
       };
     }
 
+    case types.SET_SPORTS: {
+      const { sports } = payload;
+      return {
+        ...state,
+        sports,
+      };
+    }
+
     default:
       return state;
   }
 };
 
 const getActivities = (state) => state.activities.activities;
+const getSports = (state) => state.activities.sports;
 
 export const selectors = {
   getActivities,
+  getSports,
 };
 
 const setActivities = (activities) => ({
@@ -34,8 +50,14 @@ const setActivities = (activities) => ({
   payload: { activities },
 });
 
+const setSports = (sports) => ({
+  type: types.SET_SPORTS,
+  payload: { sports },
+});
+
 const actions = {
-  setActivities
+  setActivities,
+  setSports,
 };
 
 export { actions };

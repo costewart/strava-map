@@ -32,9 +32,12 @@ const Create = () => {
     for (let i = 0; i < data.length; i += 1) {
       const activity_polyline = data[i].map.summary_polyline;
       const activity_name = data[i].name;
+      const activity_type = data[i].type;
+
       polylines.push({
         activityPositions: polyline.decode(activity_polyline),
         activityName: activity_name,
+        type: activity_type,
       });
     }
 
