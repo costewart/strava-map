@@ -10,11 +10,17 @@ const Map = () => {
     useSelector(selectors.getActivities)
   );
 
-  const [filters, setFilters] = useState({
-    Ride: true,
-    Kitesurf: true,
-    Surfing: true,
-  });
+  const getSports = () => {
+    let sports = {};
+    activities.forEach((activity) => {
+      if (!sports[activity.type]) {
+        sports[activity.type] = true;
+      }
+    });
+    return sports;
+  };
+
+  const [filters, setFilters] = useState(getSports());
 
   const removeFalsy = (obj) => {
     let newObj = {};
@@ -46,11 +52,12 @@ const Map = () => {
           .map((activity, index) => (
             <Polyline
               key={index}
-              positions={activity.activityPositions}
-              color={activity.color}
+              positions={activity.positions}
+              pathOptions={{ color: activity.color }}
             >
-              <Popup positions={activity.activityPositions}>
-                {activity.activityName}
+              <Popup positions={activity.positions}>
+                {activity.name}
+                {activity.color}
               </Popup>
             </Polyline>
           ))}

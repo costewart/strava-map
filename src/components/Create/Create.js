@@ -15,8 +15,8 @@ const colors = {
   BackcountrySki: "#DCDCDC",
   Canoe: "#B22222",
   Crossfit: "#2F4F4F",
-  Kitesurf: "#8FBC8F",
-  Surf: "#556B2F",
+  Kitesurf: "#00FFFF",
+  Surfing: "#556B2F",
 };
 
 const Create = () => {
@@ -39,7 +39,6 @@ const Create = () => {
 
     var response = await fetch("http://localhost:5000/activities", settings);
     const data = await response.json();
-    console.log(data);
 
     const polylines = [];
     for (let i = 0; i < data.length; i += 1) {
@@ -48,13 +47,14 @@ const Create = () => {
       const activity_type = data[i].type;
 
       polylines.push({
-        activityPositions: polyline.decode(activity_polyline),
-        activityName: activity_name,
+        positions: polyline.decode(activity_polyline),
+        name: activity_name,
         type: activity_type,
         color: colors[activity_type],
       });
     }
 
+    console.log(polylines);
     dispatch(actions.setActivities(polylines));
 
     history.push("/map");
@@ -62,8 +62,6 @@ const Create = () => {
     return data;
   };
 
-  const activities = useSelector(selectors.getActivities);
-  console.log(activities);
   return (
     <div>
       <TopBar /> <button onClick={getActivities}>Get Activities </button>
