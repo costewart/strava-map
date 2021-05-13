@@ -3,13 +3,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectors, actions } from "../../redux/activities";
 import "./FilterBox.css";
 
-const FilterBox = ({onSubmit, sports}) => {
-
+const FilterBox = ({ onSubmit, sports }) => {
   const dispatch = useDispatch();
 
-  const handleToggle = ({ target }) =>
-   onSubmit((s) => ({ ...s, [target.name]: !s[target.name] }))
-
+  const handleToggle = ({ target }) => {
+    console.log("in handle toggle", target.name);
+    onSubmit((s) => ({ ...s, [target.name]: !s[target.name] }));
+  };
 
   return (
     <div className="filter_box">
