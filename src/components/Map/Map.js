@@ -28,10 +28,9 @@ const Map = () => {
 
   const sports = Object.keys(removeFalsy(filters));
 
-  console.log(sports);
   return (
     <div>
-      <FilterBox onSubmit={setFilters} sports={filters}/>
+      <FilterBox onSubmit={setFilters} sports={filters} />
       <MapContainer
         center={[49.246292, -123.116226]}
         zoom={11}
@@ -45,7 +44,11 @@ const Map = () => {
         {activities
           .filter((activity) => sports.includes(activity.type))
           .map((activity, index) => (
-            <Polyline key={index} positions={activity.activityPositions}>
+            <Polyline
+              key={index}
+              positions={activity.activityPositions}
+              color={activity.color}
+            >
               <Popup positions={activity.activityPositions}>
                 {activity.activityName}
               </Popup>
