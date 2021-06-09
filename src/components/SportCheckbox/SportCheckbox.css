@@ -1,0 +1,15 @@
+.sport {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px;
+}
+
+.sport input {
+  height: 20px;
+  width: 20px;
+  margin: 5px;
+}
+
+.sport .sport-title {
+  margin: 5px;
+}

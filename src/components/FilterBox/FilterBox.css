@@ -6,11 +6,15 @@
   background-color: bisque;
   left: 10px;
   top: 100px;
-}
-
-.checkboxes {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.filter_box .checkboxes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 input[type="checkbox"],
