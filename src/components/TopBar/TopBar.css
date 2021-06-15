@@ -1,16 +1,15 @@
 .top-bar {
-  height: 100%;
   background-color: #e7ebef;
   padding: 25px 25px 10px 25px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .top-bar .top-bar-header {
@@ -20,8 +19,8 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .top-bar .top-bar-header h1 {
@@ -43,8 +42,8 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .top-bar .left .feature {
@@ -54,16 +53,16 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding-right: 5px;
 }
 
 .top-bar .left .buttons {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -82,8 +81,8 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .top-bar .logo-wrapper {
@@ -107,6 +106,6 @@
   outline: none;
   border-color: #3183c8;
   -webkit-box-shadow: 0 0 3px #3183c8;
-          box-shadow: 0 0 3px #3183c8;
+  box-shadow: 0 0 3px #3183c8;
 }
 /*# sourceMappingURL=TopBar.css.map */

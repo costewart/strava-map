@@ -1,0 +1,60 @@
+.intro {
+  padding-right: 75px;
+  padding-left: 75px;
+  display: flex;
+  flex-direction: column;
+}
+
+.intro .grid-container {
+  display: grid;
+  grid-column-gap: 50px;
+  grid-template-columns: auto auto;
+  background-color: #2196f3;
+  padding: 10px;
+}
+
+.intro .grid-container .grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 10px;
+  text-align: left;
+}
+
+.intro .grid-container .grid-item > * {
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.intro .grid-container .grid-item img {
+  height: 200px;
+  width: 175px;
+}
+
+.intro .grid-container .grid-item .headline {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.intro .grid-container .grid-item .small-header {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.intro .grid-container .grid-item .paragraph {
+  font-size: 15px;
+  opacity: 60%;
+}
+
+.intro .grid-container .grid-item .large-text {
+  font-size: 20px;
+  opacity: 60%;
+}
+
+.intro button {
+  background: #999b85;
+  color: #ffffff;
+  border: none;
+  border-radius: 10%;
+  padding: 7px;
+}

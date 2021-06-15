@@ -2,26 +2,27 @@ import React from "react";
 import Map from "./components/Map";
 import Home from "./components/Home";
 import Create from "./components/Create";
+import Intro from "./components/Intro";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import { reducers } from "./redux";
 import "./App.css";
-
+import TopBar from "./components/TopBar";
 
 const AppWrapper = () => {
   const store = createStore(
     combineReducers({
       ...reducers,
-    }),
+    })
 
     // composeWithDevTools(applyMiddleware(thunk))
   );
 
   return (
-      <Provider store={store}>
-        <App />
-      </Provider>
+    <Provider store={store}>
+      <App />
+    </Provider>
   );
 };
 
@@ -35,7 +36,11 @@ const App = () => {
   return (
     <Router>
       <div className="App">
+        <TopBar/>
         <Switch>
+          <Route path="/intro">
+            <Intro />
+          </Route>
           <Route path="/home">
             <Home />
           </Route>
@@ -49,6 +54,6 @@ const App = () => {
       </div>
     </Router>
   );
-}
+};
 
 export default AppWrapper;
