@@ -1,8 +1,12 @@
 import React from "react";
 import "./Intro.css";
+import { useHistory } from "react-router-dom";
 import sample from "./sample.jpeg";
+import map from "./map.png";
 
 const Intro = () => {
+  const history = useHistory();
+
   return (
     <div className="intro">
       <div class="grid-container">
@@ -12,7 +16,7 @@ const Intro = () => {
             Your all in one solution to mapping your adventures and sharing with
             friends.
           </div>
-          <button>Create Your Map</button>
+          <button onClick={() => history.push("/home")}>Create Your Map</button>
         </div>
         <div class="grid-item-image">
           <img src={sample} alt="my image" />
@@ -53,7 +57,10 @@ const Intro = () => {
           </div>
         </div>
         <div class="grid-item-image">
-          <button>Create Your Map</button>
+          <button onClick={() => history.push("/home")}>Create Your Map</button>
+        </div>
+        <div class="grid-item-map">
+          <img src={map} alt="my image" />
         </div>
       </div>
     </div>

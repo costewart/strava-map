@@ -51,6 +51,11 @@
   opacity: 60%;
 }
 
+.intro .grid-container .grid-item-map {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
 .intro .grid-container .grid-item .large-text {
   font-size: 20px;
   opacity: 60%;
@@ -64,4 +69,5 @@
   padding: 14px 23px;
   font-size: 15px;
   font-weight: bold;
+  cursor: pointer;
 }

@@ -2,7 +2,6 @@ import React from "react";
 import "./TopBar.css";
 
 const TopBar = () => {
-
   return (
     <div className="top-bar">
       <div className="logo-wrapper"></div>
@@ -12,7 +11,10 @@ const TopBar = () => {
         </div>
         <div className="buttons"></div>
       </div>
-      <div className="right expanded"></div>
+      <div className="right expanded">
+        <button className="Button">About</button>
+        <button className="Button">Contact</button>
+      </div>
 
       <div className="right-hand">
         <div className="hamburger">
