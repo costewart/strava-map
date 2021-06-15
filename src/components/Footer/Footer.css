@@ -1,3 +1,8 @@
 .Footer {
   margin-top: auto;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  padding-right: 50px;
+  background-color: #f4efec;
+  text-align: right;
 }

@@ -14,10 +14,10 @@ const Intro = () => {
           </div>
           <button>Create Your Map</button>
         </div>
-        <div class="grid-item">
+        <div class="grid-item-image">
           <img src={sample} alt="my image" />
         </div>
-        <div class="grid-item">
+        <div class="grid-item-image">
           <img src={sample} alt="my image" />
         </div>
         <div class="grid-item">
@@ -39,7 +39,7 @@ const Intro = () => {
             from your fellow Map Makers by exploring together!
           </div>
         </div>
-        <div class="grid-item">
+        <div class="grid-item-image">
           <img src={sample} alt="my image" />
         </div>
         <div class="grid-item">
@@ -52,7 +52,7 @@ const Intro = () => {
             visualize your activity in an area, and to share with friends.
           </div>
         </div>
-        <div class="grid-item">
+        <div class="grid-item-image">
           <button>Create Your Map</button>
         </div>
       </div>

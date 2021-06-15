@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import { reducers } from "./redux";
 import "./App.css";
 import TopBar from "./components/TopBar";
+import Footer from "./components/Footer";
 
 const AppWrapper = () => {
   const store = createStore(
@@ -36,7 +37,7 @@ const App = () => {
   return (
     <Router>
       <div className="App">
-        <TopBar/>
+        <TopBar />
         <Switch>
           <Route path="/intro">
             <Intro />
@@ -51,6 +52,7 @@ const App = () => {
             <Map />
           </Route>
         </Switch>
+        <Footer />
       </div>
     </Router>
   );
